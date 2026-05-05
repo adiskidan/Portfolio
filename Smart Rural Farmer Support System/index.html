@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Rural Farmer Support System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <h1>Smart Rural Farmer Support System</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#registration" onclick="scrollToSection('registration')">Register</a></li>
+                <li><a href="#market" onclick="scrollToSection('market')">Market Prices</a></li>
+                <li><a href="#expenses" onclick="scrollToSection('expenses')">Expense & Profit</a></li>
+                <li><a href="#buyers" onclick="scrollToSection('buyers')">Buyers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="home-section">
+        <div class="overlay">
+            <h2>Welcome Farmers!</h2>
+            <p>Check current seed prices, calculate your profit, and connect with buyers easily.</p>
+            <button onclick="scrollToSection('market')">Check Market Prices</button>
+        </div>
+    </section>
+
+    <!-- FARMER REGISTRATION -->
+    <section id="registration">
+        <h2>Farmer Registration</h2>
+        <form id="farmerForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Your name" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Village or city" required>
+
+            <label for="crop">Crop Type:</label>
+            <input type="text" id="crop" placeholder="Wheat, Maize, etc." required>
+
+            <label for="land">Land Size (hectares):</label>
+            <input type="number" id="land" placeholder="e.g. 2.5" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <div id="farmerList">
+            <h3>Registered Farmers</h3>
+            <div class="card-container" id="farmers"></div>
+        </div>
+    </section>
+
+    <!-- MARKET PRICE CHECKER -->
+    <section id="market">
+        <h2>Current Market Prices</h2>
+        <div class="card-container" id="priceList"></div>
+    </section>
+
+    <!-- EXPENSE & PROFIT CALCULATOR -->
+    <section id="expenses">
+        <h2>Expense & Profit Calculator</h2>
+        <form id="expenseForm">
+            <label for="seed">Seed Cost ($):</label>
+            <input type="number" id="seed" required>
+
+            <label for="fertilizer">Fertilizer Cost ($):</label>
+            <input type="number" id="fertilizer" required>
+
+            <label for="labor">Labor Cost ($):</label>
+            <input type="number" id="labor" required>
+
+            <label for="income">Income from Sale ($):</label>
+            <input type="number" id="income" required>
+
+            <button type="submit">Calculate Profit</button>
+        </form>
+        <p id="profitOutput" class="profit-output"></p>
+    </section>
+
+    <!-- BUYERS SIMULATION -->
+    <section id="buyers">
+        <h2>Connect with Buyers</h2>
+        <p>Contact local buyers for your crops:</p>
+        <ul id="buyerList">
+            <li>John - Wheat Buyer - 555-1234</li>
+            <li>Mary - Maize Buyer - 555-5678</li>
+            <li>Ali - Rice Buyer - 555-9012</li>
+        </ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
