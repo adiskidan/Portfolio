@@ -401,26 +401,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Initialize all functions
-    function init() {
+    // Add Save Button to Header
+    function addSaveButton() {
+        const header = document.querySelector('header .container');
+        if (header) {
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'save-btn';
+            saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Portfolio';
+            saveBtn.onclick = savePortfolio;
+            saveBtn.setAttribute('aria-label', 'Save portfolio data');
+            header.appendChild(saveBtn);
+        }
+    }
+    
+    // Initialize all features
+    function initAll() {
         initSmoothScrolling();
         initActiveNavigation();
-        initScrollAnimations();
-        initMobileMenu();
-        initHeaderScroll();
-        initTypingAnimation();
-        initParallaxEffect();
+        initParallaxEffects();
         initInteractiveEffects();
         initFormValidation();
         initLoadingAnimation();
+        startProgressBars();
+        animateCounters();
         initScrollIndicator();
         initThemeToggle();
         initBackToTop();
         initCursorTrail();
+        addSaveButton();
     }
     
-    // Start the application
-    init();
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initAll);
     
     // Utility functions
     window.portfolioUtils = {
