@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Bingo Professional</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>BINGO HALL SYSTEM</h1>
+
+<button onclick="location.href='/admin'">Admin Panel</button>
+
+<div class="controls">
+
+<button onclick="draw()">Draw</button>
+<button onclick="autoStart()">Auto</button>
+<button onclick="stopAuto()">Stop</button>
+<button onclick="resetGame()">Reset</button>
+
+<h2 id="current">Waiting...</h2>
+
+</div>
+
+<div id="board" class="board"></div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>

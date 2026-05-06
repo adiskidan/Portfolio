@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Panel</title>
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>Admin Panel</h1>
+
+<form id="form">
+
+<input name="name" placeholder="Player Name" required>
+
+<select name="cartela" id="cartela"></select>
+
+<input name="amount" type="number" placeholder="Birr">
+
+<button>Add Player</button>
+
+</form>
+
+
+<h2>Players Table</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Player Name</th>
+<th>Cartela Number</th>
+<th>Birr</th>
+</tr>
+
+{% for p in players %}
+
+<tr>
+<td>{{p.id}}</td>
+<td>{{p.name}}</td>
+<td>{{p.cartela}}</td>
+<td>{{p.amount}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<script>
+
+let cartela=document.getElementById("cartela")
+
+for(let i=1;i<=400;i++){
+
+let op=document.createElement("option")
+
+op.value=i
+op.text="Cartela "+i
+
+cartela.appendChild(op)
+
+}
+
+document.getElementById("form").onsubmit=function(e){
+
+e.preventDefault()
+
+fetch("/add_player",{
+method:"POST",
+body:new FormData(this)
+}).then(()=>location.reload())
+
+}
+
+</script>
+
+</body>
+</html>
